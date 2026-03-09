@@ -9,12 +9,17 @@ const app = express()
 
 app.use(express.json())
 
+app.use((req, res, next) => {
+  console.log(`${req.method} ${req.url}`)
+  next()
+})
+
 app.use(authRoutes) // POST /register, POST /login
 app.use(userRoutes) // GET /me
 
 // 404
 app.use((_req, res) => {
-  res.status(404).json({ success: false, message: "Not found" })
+  res.status(404).json({ success: false, message: "Route not found" })
 })
 
 app.use(errorHandler)
