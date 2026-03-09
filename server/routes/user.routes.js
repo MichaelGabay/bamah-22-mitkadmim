@@ -1,10 +1,9 @@
-import { Router } from 'express';
-import { getMe } from '../controllers/user.controller.js';
-import { auth } from '../middleware/auth.middleware.js';
-import { catchAsync } from '../utils/catchAsync.js';
+import { Router } from "express"
+import { getMe } from "../controllers/user.controller.js"
+import { auth } from "../middleware/auth.middleware.js"
 
-const router = Router();
+const router = Router()
 
-router.get('/me', auth, catchAsync(getMe));
+router.get("/me", auth, getMe)
 
-export default router;
+export default router

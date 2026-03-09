@@ -2,6 +2,7 @@ import express from "express"
 import authRoutes from "./routes/auth.routes.js"
 import userRoutes from "./routes/user.routes.js"
 import "dotenv/config"
+import "./config/connectDB.js"
 import { errorHandler } from "./middleware/errorHandler.js"
 
 const app = express()
