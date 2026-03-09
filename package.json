@@ -7,7 +7,7 @@
     "dev": "npm run run:all",
     "start": "npm run i:all && npm run run:all",
     "run:all": "concurrently \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
-    "i:all": "npm install && npm install --prefix server && npm install --prefix client",
+    "i:all": "npm install && npm install --prefix server && npm install --prefix client && cp server/.env-example server/.env",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
