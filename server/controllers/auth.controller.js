@@ -11,18 +11,18 @@ export const register = async (req, res) => {
   }
   req.body.password = await bcrypt.hash(req.body.password, 10)
   const user = await User.create(req.body)
-  res.status(201).json({ user, token })
+  res.status(201).json({ user })
 }
 
 export const login = async (req, res, next) => {
-  const user = await User.findOne({ email: req.email.toLowerCase() })
+  const user = await User.findOne({ email: req.body.email.toLowerCase() })
   if (!user) {
     return res
       .status(401)
       .json({ success: false, message: "Invalid email or password" })
   }
 
-  const match = await bcrypt.compare(password, user.password)
+  const match = await bcrypt.compare(req.body.password, user.password)
   if (!match) {
     return res
       .status(401)
@@ -35,5 +35,5 @@ export const login = async (req, res, next) => {
     { expiresIn: "7d" },
   )
   user.password = undefined
-  res.json({ user: user.toJSON(), token })
+  res.json({ user: user.toJSON(), token: "Bearer " + token })
 }
