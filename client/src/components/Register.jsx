@@ -1,15 +1,45 @@
+import axios from "axios"
+import { useEffect, useState } from "react"
+import { REGITER_URL } from "../constant/endpoints"
+import { useNavigate } from "react-router-dom"
+import toast from "react-hot-toast"
+
 function Register() {
+  const [form, setForm] = useState({
+    name: "john",
+    email: "john@gmail.com",
+    password: "123456",
+  })
+  const nav = useNavigate()
+  const updateForm = ({ target }) => {
+    setForm({ ...form, [target.name]: target.value })
+  }
+  const register = async (e) => {
+    e.preventDefault()
+    try {
+      await axios.post(REGITER_URL, form)
+      nav("/login")
+    } catch (error) {
+      toast.error("there is an error", { position: "top-left", duration: 1000 })
+    }
+  }
+
   return (
     <main className="min-h-screen bg-slate-50 px-6 py-16">
       <div className="mx-auto max-w-md">
         <h1 className="text-2xl font-bold text-slate-900">Register</h1>
         <p className="mt-1 text-slate-600">Create your account.</p>
-        <form className="mt-8 space-y-5">
+        <form onSubmit={register} className="mt-8 space-y-5">
           <div>
-            <label htmlFor="name" className="block text-sm font-medium text-slate-700">
+            <label
+              htmlFor="name"
+              className="block text-sm font-medium text-slate-700"
+            >
               Name
             </label>
             <input
+              value={form.name}
+              onChange={updateForm}
               id="name"
               type="text"
               name="name"
@@ -19,10 +49,15 @@ function Register() {
             />
           </div>
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-slate-700">
+            <label
+              htmlFor="email"
+              className="block text-sm font-medium text-slate-700"
+            >
               Email
             </label>
             <input
+              value={form.email}
+              onChange={updateForm}
               id="email"
               type="email"
               name="email"
@@ -32,10 +67,15 @@ function Register() {
             />
           </div>
           <div>
-            <label htmlFor="password" className="block text-sm font-medium text-slate-700">
+            <label
+              htmlFor="password"
+              className="block text-sm font-medium text-slate-700"
+            >
               Password
             </label>
             <input
+              value={form.password}
+              onChange={updateForm}
               id="password"
               type="password"
               name="password"
@@ -53,7 +93,10 @@ function Register() {
         </form>
         <p className="mt-6 text-center text-sm text-slate-600">
           Already have an account?{" "}
-          <a href="/login" className="font-medium text-slate-900 underline hover:no-underline">
+          <a
+            href="/login"
+            className="font-medium text-slate-900 underline hover:no-underline"
+          >
             Log in
           </a>
         </p>

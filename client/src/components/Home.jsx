@@ -40,7 +40,8 @@ function Home() {
           <span className="text-cyan-400">Live the line.</span>
         </h1>
         <p className="mt-6 max-w-xl text-lg text-slate-300 sm:text-xl">
-          Boards, wetsuits, and gear for every break. From first foamie to your next shortboard.
+          Boards, wetsuits, and gear for every break. From first foamie to your
+          next shortboard.
         </p>
         <div className="mt-12 flex flex-wrap justify-center gap-4">
           <a
@@ -53,7 +54,7 @@ function Home() {
             href="/login"
             className="inline-flex items-center gap-2 rounded-xl border border-slate-500/50 bg-white/5 px-8 py-4 font-semibold text-white backdrop-blur-sm transition hover:bg-white/10"
           >
-            Log in
+            Register
           </a>
         </div>
       </section>
@@ -66,19 +67,33 @@ function Home() {
           </h2>
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
             <div className="group rounded-2xl border border-white/10 bg-white/5 p-8 text-center backdrop-blur-sm transition hover:border-cyan-500/40 hover:bg-white/10">
-              <span className="text-4xl" aria-hidden>🏄</span>
+              <span className="text-4xl" aria-hidden>
+                🏄
+              </span>
               <h3 className="mt-4 font-semibold text-white">Boards</h3>
-              <p className="mt-2 text-sm text-slate-400">Shortboards, longboards, foamies</p>
+              <p className="mt-2 text-sm text-slate-400">
+                Shortboards, longboards, foamies
+              </p>
             </div>
             <div className="group rounded-2xl border border-white/10 bg-white/5 p-8 text-center backdrop-blur-sm transition hover:border-cyan-500/40 hover:bg-white/10">
-              <span className="text-4xl" aria-hidden>🤿</span>
-              <h3 className="mt-4 font-semibold text-white">Wetsuits & rash guards</h3>
-              <p className="mt-2 text-sm text-slate-400">Stay warm, stay protected</p>
+              <span className="text-4xl" aria-hidden>
+                🤿
+              </span>
+              <h3 className="mt-4 font-semibold text-white">
+                Wetsuits & rash guards
+              </h3>
+              <p className="mt-2 text-sm text-slate-400">
+                Stay warm, stay protected
+              </p>
             </div>
             <div className="group rounded-2xl border border-white/10 bg-white/5 p-8 text-center backdrop-blur-sm transition hover:border-cyan-500/40 hover:bg-white/10">
-              <span className="text-4xl" aria-hidden>🌊</span>
+              <span className="text-4xl" aria-hidden>
+                🌊
+              </span>
               <h3 className="mt-4 font-semibold text-white">Accessories</h3>
-              <p className="mt-2 text-sm text-slate-400">Leashes, wax, bags & more</p>
+              <p className="mt-2 text-sm text-slate-400">
+                Leashes, wax, bags & more
+              </p>
             </div>
           </div>
         </div>
@@ -88,9 +103,13 @@ function Home() {
       <footer className="relative z-10 border-t border-white/10 py-10 text-center">
         <p className="text-slate-500">
           WaveRider Surf Shop — gear for the ocean.{" "}
-          <a href="/login" className="text-cyan-400 hover:underline">Log in</a>
+          <a href="/login" className="text-cyan-400 hover:underline">
+            Log in
+          </a>
           {" · "}
-          <a href="/register" className="text-cyan-400 hover:underline">Sign up</a>
+          <a href="/register" className="text-cyan-400 hover:underline">
+            Sign up
+          </a>
         </p>
       </footer>
     </main>
