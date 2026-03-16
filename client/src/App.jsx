@@ -1,7 +1,7 @@
 import { useEffect } from "react"
-import { getRequest } from "./services/service"
 import { GET_ME_URL } from "./constant/endpoints"
 import { useUserStore } from "./global/user"
+import axios from "axios"
 
 function App() {
   const { setUser, user } = useUserStore()
@@ -9,17 +9,18 @@ function App() {
     const token = localStorage.getItem("token")
     if (!token) return
     try {
-      const { data } = await getRequest(GET_ME_URL)
+      const { data } = await axios.get(GET_ME_URL)
       setUser(data.user)
     } catch (error) {
-      alert(error)
+      console.error(error)
     }
   }
+
   useEffect(() => {
     checkUser()
   }, [])
 
-  return <h1 className="text-3xl font-bold underline">{user.createdAt}</h1>
+  return <h1 className="text-3xl font-bold underline">hey hwy</h1>
 }
 
 export default App
