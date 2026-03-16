@@ -2,6 +2,8 @@ import { useEffect } from "react"
 import { GET_ME_URL } from "./constant/endpoints"
 import { useUserStore } from "./global/user"
 import axios from "axios"
+import { useCounterStore } from "./global/counter"
+import Home from "./components/Home"
 
 function App() {
   const { setUser, user } = useUserStore()
@@ -20,7 +22,14 @@ function App() {
     checkUser()
   }, [])
 
-  return <h1 className="text-3xl font-bold underline">hey hwy</h1>
+  return (
+    <>
+      {/* ליצור ראוטים עם react router */}
+      {/* / -> Home.jsx*/}
+      {/* /register - Register.jsx */}
+      {/* /login -> Login.jsx */}
+    </>
+  )
 }
 
 export default App
